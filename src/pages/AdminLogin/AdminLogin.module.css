@@ -1,0 +1,39 @@
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.adminHeader{
+    font-size: 50px;
+    font-weight: 300;
+}
+.formbox{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+label{
+    font-weight: 600;
+}
+input{
+   
+    width: 374px;
+    padding: 10px;
+    box-shadow: 10px;
+}
+
+.inputBox{
+    margin-top: 20px;
+}
+
+.submit{
+   
+    margin-top: 30px;
+    background-color: blueviolet;
+    color: white;
+    width: 120px;
+    height: 48px;
+    border: none;
+  
+}

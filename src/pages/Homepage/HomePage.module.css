@@ -1,0 +1,39 @@
+.container{
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+.heading{
+    font-size: 50px;
+ font-weight: 300;
+}
+
+
+.coinsBox{
+   font-size: 28px;
+   line-height: 28px;
+   font-weight: 500;
+
+}
+
+.coinsBoxes{
+   margin-top: 50px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.coinImageBox{
+  width: 150px;
+}
+img{
+ max-width: 214px;
+   object-fit: cover;
+}
+
+a{display: block;
+   color:black;
+   font-size: 14px;
+   margin-top: 20px;
+   text-decoration:none;
+}

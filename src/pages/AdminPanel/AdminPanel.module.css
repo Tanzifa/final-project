@@ -1,0 +1,74 @@
+.box{
+    margin-top: 50px;
+    display: flex;
+    align-items: start;
+    gap: 30px;
+}
+
+
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.coinBox{
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 150px;
+    row-gap: 50px;
+}
+
+
+
+img{
+    width: 120px;
+    height: 120px;
+}
+
+.title{
+    font-size: 20px;
+    color: #833AE0;;
+}
+.description{
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.coinDescription{
+    max-width: 224px;
+}
+
+button{
+    width: 128px;
+    height: 48px;
+    border: none;
+}
+
+.buttons{
+    display: flex;
+    gap:30px;
+}
+
+a{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+   
+}
+
+.circle{
+    width: 120px;
+    height: 120px;
+    border:1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newIcon{
+    font-size: 14px;
+    color: black;
+    text-decoration: underline;
+}

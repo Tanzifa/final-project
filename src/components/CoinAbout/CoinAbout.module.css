@@ -1,0 +1,36 @@
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.coinBox{
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 150px;
+    row-gap: 25px;
+}
+
+.coinAbout{
+    display: flex;
+    gap: 30px;
+    align-items: start;
+}
+
+img{
+    width: 120px;
+    height: 120px;
+}
+
+.title{
+    font-size: 20px;
+    color: #833AE0;;
+}
+.description{
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.coinDescription{
+    max-width: 224px;
+}

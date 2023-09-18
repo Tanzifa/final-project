@@ -1,0 +1,27 @@
+
+   
+.btn{
+    width: 120px;
+    padding: 11px;
+    background-color: #833AE0;
+    color: white;
+    margin-left: 30px;
+    border: none;
+ } 
+h2{
+margin-bottom: 0;
+    font-size: 50px;
+    font-weight: 500;
+ 
+}
+
+span{
+    margin-top: 0;
+    color: #B1ABAB;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.filter{
+    margin-top: 0px;
+}

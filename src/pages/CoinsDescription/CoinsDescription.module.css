@@ -1,0 +1,55 @@
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+.descriptionBox{
+    display: flex;
+  
+
+}
+
+.coinsImage div{
+   max-width: 300px;
+ 
+}
+
+img{
+    width: 100%;
+    object-fit: contain;
+}
+.contentBox{
+    padding: 19px 43px;
+    max-width: 452px;
+    background-color: rgba(196, 196, 196, 0.50);
+}
+
+h3{
+    font-size: 28px;
+font-weight: 700;
+}
+
+.coinsTableRow div{
+    display: flex;
+ padding-left: 6px;
+}
+
+.coinsTableRow div p{
+    width:183px;
+    font-size: 10px;
+}
+
+.coinsTableRow div:nth-child(2n+1){
+    background-color: white;
+}
+
+.backToList{
+    margin-top: 145px;
+}
+
+.backToList a{
+    font-size: 10px;
+   text-decoration: underline;
+}
