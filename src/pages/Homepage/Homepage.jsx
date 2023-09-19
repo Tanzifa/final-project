@@ -25,11 +25,17 @@ const Homepage = () => {
   const handleBlogClick = (topicId) => {
     navigate(`/adminpanel/${topicId}`);
   };
-
+  function handleClick() {
+    navigate("/homepage2");
+  }
   return (
     <>
       <div className={classes.container}>
-        <Search title="HomePage" filter="Advanced filter" />
+        <Search
+          title="HomePage"
+          filter="Advanced filter &#9207;"
+          handleClick={handleClick}
+        />
         <div className={classes.coinsBoxes}>
           {topics &&
             topics.map((topic) => (

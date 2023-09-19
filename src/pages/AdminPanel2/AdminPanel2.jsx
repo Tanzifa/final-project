@@ -27,7 +27,7 @@ const AdminPanel2 = () => {
 
   const getBlogs = async () => {
     const blo = await axios.get(" http://localhost:3004/blogs/" + id);
-    setBlogs(blo.data);
+    setValues(blo.data);
   };
 
   useEffect(() => {
@@ -39,25 +39,11 @@ const AdminPanel2 = () => {
       ...prevValues,
       [event.target.name]: event.target.value,
     }));
+    input.value = "";
   };
   const handleSubmit = async () => {
-    const data = {
-      coinName: values.coinName,
-      faceValue: values.faceValue,
-      shortDescription: values.shortDescription,
-      longDescription: values.longDescription,
-      YearOfIssue: values.YearOfIssue,
-      price: values.price,
-      country: values.country,
-      metal: values.metal,
-      LinkToObverseImage: values.LinkToObverseImage,
-      LinkToReverseImage: values.LinkToReverseImage,
-      qualityOftheCoin: values.qualityOftheCoin,
-      Weight: values.Weight,
-    };
-
-    await axios.put(" http://localhost:3004/blogs/" + id, data);
-    navigate("/adminpanel");
+    await axios.put(" http://localhost:3004/blogs/" + id, values);
+    navigate(`/adminpanel`);
   };
   function cancelClick() {
     navigate(`/adminpanel`);
@@ -76,7 +62,8 @@ const AdminPanel2 = () => {
                   name="coinName"
                   onChange={handleChange}
                   id="coinName"
-                  value={blogs.coinName}
+                  // defaultValue={blogs.coinName}
+                  value={values.coinName}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -84,7 +71,7 @@ const AdminPanel2 = () => {
                 <br />
                 <input
                   onChange={handleChange}
-                  value={blogs.faceValue}
+                  value={values.faceValue}
                   type="text"
                   name="faceValue"
                   id="faceValue"
@@ -99,7 +86,7 @@ const AdminPanel2 = () => {
                 onChange={handleChange}
                 name="shortDescription"
                 id=""
-                value={blogs.shortDescription}
+                value={values.shortDescription}
               ></textarea>
             </div>
 
@@ -112,7 +99,7 @@ const AdminPanel2 = () => {
                   onChange={handleChange}
                   name="obverseImage"
                   id="obverseImage"
-                  value={blogs.LinkToObverseImage}
+                  value={values.LinkToObverseImage}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -123,7 +110,8 @@ const AdminPanel2 = () => {
                   name="reverseImage"
                   id="reverseImage"
                   onChange={handleChange}
-                  value={blogs.LinkToReverseImage}
+                  // defaultValue={blogs.LinkToReverseImage}
+                  value={values.LinkToObverseImage}
                 />
               </div>
             </div>
@@ -139,7 +127,7 @@ const AdminPanel2 = () => {
                   name="YearOfIssue"
                   id="YearOfIssue"
                   onChange={handleChange}
-                  value={blogs.YearOfIssue}
+                  value={values.YearOfIssue}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -150,7 +138,7 @@ const AdminPanel2 = () => {
                   name="price"
                   id="price"
                   onChange={handleChange}
-                  value={blogs.price}
+                  value={values.price}
                 />
               </div>
             </div>
@@ -161,7 +149,7 @@ const AdminPanel2 = () => {
                 name="longDescription"
                 id=""
                 onChange={handleChange}
-                value={blogs.longDescription}
+                value={values.longDescription}
               ></textarea>
             </div>
           </div>
@@ -173,7 +161,7 @@ const AdminPanel2 = () => {
                 type="text"
                 name="country"
                 id="country"
-                value={blogs.country}
+                value={values.country}
                 onChange={handleChange}
               />
             </div>
@@ -186,7 +174,7 @@ const AdminPanel2 = () => {
                 name="qualityOftheCoin"
                 id="qualityOftheCoin"
                 onChange={handleChange}
-                value={blogs.qualityOftheCoin}
+                value={values.qualityOftheCoin}
               />
             </div>
           </div>
@@ -214,7 +202,11 @@ const AdminPanel2 = () => {
               />
             </div>
 
-            <button onClick={() => handleSubmit()} className={classes.save}>
+            <button
+              type="submit"
+              onClick={() => handleSubmit()}
+              className={classes.save}
+            >
               Save
             </button>
             <button

@@ -26,18 +26,12 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/homepage2"
-            element={
-              <ProtectedRoute>
-                <HomePage2 />
-              </ProtectedRoute>
-            }
-          />
+
           <Route path="/adminPanel2/:id" element={<AdminPanel2 />} />
           <Route path="/listofthecoins" element={<ListOfTheCoins />} />
           <Route path="/coinsdescription/:id" element={<CoinsDescription />} />
           <Route path="/adminpanel" element={<AdminPanel />} />
+          <Route path="/homepage2" element={<HomePage2 />} />
         </Routes>
       </BrowserRouter>
     </>
