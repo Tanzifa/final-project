@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from "react";
-import classes from "./AdminPanel2.Module.css";
-import { useParams } from "react-router-dom";
+import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import classes from "./Add.module.css";
 
-const AdminPanel2 = () => {
-  const navigate = useNavigate();
-
-  const { id } = useParams();
-  const [blogs, setBlogs] = useState([]);
-
+const Add = () => {
+  const [blogs, setBlogs] = useState();
   const [values, setValues] = useState({
     topicName: "",
     faceValue: "",
@@ -24,25 +19,23 @@ const AdminPanel2 = () => {
     qualityOftheCoin: "",
     Weight: "",
   });
-
   const getBlogs = async () => {
-    const blo = await axios.get(" http://localhost:3004/blogs/" + id);
-    setValues(blo.data);
+    const blo = await axios.get(" http://localhost:3004/blogs/");
+    setBlogs(blo.data);
   };
 
   useEffect(() => {
     getBlogs();
-  }, [id]);
+  }, []);
 
   const handleChange = (event) => {
     setValues((prevValues) => ({
       ...prevValues,
       [event.target.name]: event.target.value,
     }));
-    input.value = "";
   };
   const handleSubmit = async () => {
-    await axios.put(" http://localhost:3004/blogs/" + id, values);
+    await axios.post(" http://localhost:3004/blogs/", values);
     navigate(`/adminpanel`);
   };
   function cancelClick() {
@@ -54,7 +47,7 @@ const AdminPanel2 = () => {
         <div className={classes.container}>
           <div className={classes.boxpart}>
             <div className={classes.inputBoxes}>
-              <div>
+              <div className={classes.inputBox}>
                 <label htmlFor="topicName">Coin name</label>
                 <br />
                 <input
@@ -62,8 +55,6 @@ const AdminPanel2 = () => {
                   name="topicName"
                   onChange={handleChange}
                   id="topicName"
-                  // defaultValue={blogs.coinName}
-                  value={values.topicName}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -71,7 +62,6 @@ const AdminPanel2 = () => {
                 <br />
                 <input
                   onChange={handleChange}
-                  value={values.faceValue}
                   type="text"
                   name="faceValue"
                   id="faceValue"
@@ -86,7 +76,6 @@ const AdminPanel2 = () => {
                 onChange={handleChange}
                 name="shortDescription"
                 id=""
-                value={values.shortDescription}
               ></textarea>
             </div>
 
@@ -101,7 +90,6 @@ const AdminPanel2 = () => {
                   onChange={handleChange}
                   name="LinkToObverseImage"
                   id="obverseImage"
-                  value={values.LinkToObverseImage}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -112,8 +100,6 @@ const AdminPanel2 = () => {
                   name="reverseImage"
                   id="reverseImage"
                   onChange={handleChange}
-                  // defaultValue={blogs.LinkToReverseImage}
-                  value={values.LinkToObverseImage}
                 />
               </div>
             </div>
@@ -129,7 +115,6 @@ const AdminPanel2 = () => {
                   name="YearOfIssue"
                   id="YearOfIssue"
                   onChange={handleChange}
-                  value={values.YearOfIssue}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -140,7 +125,6 @@ const AdminPanel2 = () => {
                   name="price"
                   id="price"
                   onChange={handleChange}
-                  value={values.price}
                 />
               </div>
             </div>
@@ -151,7 +135,6 @@ const AdminPanel2 = () => {
                 name="longDescription"
                 id=""
                 onChange={handleChange}
-                value={values.longDescription}
               ></textarea>
             </div>
           </div>
@@ -163,7 +146,6 @@ const AdminPanel2 = () => {
                 type="text"
                 name="country"
                 id="country"
-                value={values.country}
                 onChange={handleChange}
               />
             </div>
@@ -176,7 +158,6 @@ const AdminPanel2 = () => {
                 name="qualityOftheCoin"
                 id="qualityOftheCoin"
                 onChange={handleChange}
-                value={values.qualityOftheCoin}
               />
             </div>
           </div>
@@ -189,7 +170,6 @@ const AdminPanel2 = () => {
                 name="metal"
                 id="metal"
                 onChange={handleChange}
-                value={blogs.metal}
               />
             </div>
             <div className={classes.inputBox}>
@@ -200,7 +180,6 @@ const AdminPanel2 = () => {
                 name="weight"
                 id="weight"
                 onChange={handleChange}
-                value={blogs.Weight}
               />
             </div>
             <div className={classes.clickButtons}>
@@ -227,4 +206,4 @@ const AdminPanel2 = () => {
   );
 };
 
-export default AdminPanel2;
+export default Add;

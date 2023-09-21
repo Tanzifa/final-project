@@ -46,7 +46,7 @@
     {
       "topicId": 1,
       "id": 2,
-      "coinName": "Gold Maple Leaf",
+      "topicName": "Gold Maple Leafxsd",
       "faceValue": "",
       "YearOfIssue": 1979,
       "price": "50.00 CAD",
@@ -55,12 +55,13 @@
       "Composition": "Gold (99.99% Au)",
       "Diameter": "30.00 mm",
       "Weight": "31.11 g",
-      "shortDescription": "The Canadian Gold Maple Leaf (GML) is a gold bullion coin that is issued annually by the Government of Canada. It is produced by the Royal Canadian Mint.mmmmmmmm",
+      "shortDescription": "The Canadian Gold Maple Leaf (GML) is a gold bullion coin that is issued annually by the Government of Canada. It is produced by the Royal Canadian Mint.vvv",
       "longDescription": "The Gold Maple Leaf is legal tender with a face value of 50 Canadian dollars. The market value of the metal varies, depending on the spot price of gold. Having a .9999 millesimal fineness (24 karats), in some cases .99999, the coin is among the purest official bullion coins worldwide. The standard version has a weight of minimum 1 troy ounce (31.10 grams). Other sizes and denominations include 1 gram, 1⁄25 oz. ($0.50), 1⁄20 oz. ($1), 1⁄10 oz. ($5), 1⁄4 oz. ($10), and 1⁄2 oz. ($20).",
       "qualityOftheCoin": "",
       "LinkToObverseImage": "https://www.usmint.gov/wordpress/wp-content/uploads/2018/11/2019-native-american-one-dollar-uncirculated-reverse.jpg",
       "LinkToReverseImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG5yFbH4FxTKZ_Q6AtErf5ePETJLNlNjD6xw&usqp=CAU",
-      "obverseImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAC-P-NDa_K5KDASj8QStuKobzf3k_FHS2JKgND7ootKrRmKpQQvy-TQ1kelJ-DqAQqkE&usqp=CAU"
+      "obverseImage": "https://www.skyjewellery.shop/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/4/g/4gm-back.jpg",
+      "coinName": "Gold Maple Leafb"
     },
     {
       "topicId": 1,

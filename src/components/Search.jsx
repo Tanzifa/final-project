@@ -1,7 +1,14 @@
 import React from "react";
 import classes from "../components/Search.module.css";
 
-const Search = ({ title, list, filter, handleClick, handleFilter }) => {
+const Search = ({
+  title,
+  list,
+  filter,
+  handleClick,
+  handleFilter,
+  handleChange,
+}) => {
   return (
     <>
       <h2>{title}</h2>
@@ -9,7 +16,12 @@ const Search = ({ title, list, filter, handleClick, handleFilter }) => {
       <form>
         <label htmlFor="field">Input field</label>
         <br />
-        <input type="text" name="field" id="field" />
+        <input
+          type="text"
+          name="field"
+          id="field"
+          onChange={() => handleChange(e)}
+        />
         <button className={classes.btn} onClick={handleFilter}>
           Search
         </button>

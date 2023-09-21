@@ -7,6 +7,7 @@ import classes from "./HomePage.module.css";
 const Homepage = () => {
   const [topics, setTopics] = useState([]);
   const [blogs, setBlogs] = useState([]);
+
   const navigate = useNavigate();
 
   const getTopics = async () => {
@@ -28,11 +29,13 @@ const Homepage = () => {
   function handleClick() {
     navigate("/homepage2");
   }
+
   return (
     <>
       <div className={classes.container}>
         <Search
           title="HomePage"
+          handleFilter={handleFilter}
           filter="Advanced filter &#9207;"
           handleClick={handleClick}
         />
