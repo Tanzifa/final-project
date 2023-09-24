@@ -106,12 +106,7 @@ const AdminPanel = () => {
   return (
     <>
       <div className={classes.container}>
-        <Search
-          title="Admin Panel"
-          filter="Advanced filter"
-          handleSearch={(value) => setSearchValue(value)}
-        />
-
+        <Search title="Admin Panel" filter="Advanced filter" />
         {blogs &&
           blogs.map((blog) => (
             <>

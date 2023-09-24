@@ -33,6 +33,9 @@ const Homepage = () => {
   const handleBlogClick = (topicId) => {
     navigate(`/adminpanel/${topicId}`);
   };
+  function handleClick() {
+    navigate("/homepage2");
+  }
 
   const handleSearch = (value) => {
     console.log("ZEYNEBUN VALUESI", value);
