@@ -185,7 +185,6 @@ const AdminPanel2 = () => {
                 defaultValue={blogs.country}
                 onChange={handleChange}
                 value={values.qualityOftheCoin}
-                value={values.qualityOftheCoin}
               />
             </div>
           </div>

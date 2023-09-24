@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import classes from "./CoinsDescription.module.css";
 import { Link } from "react-router-dom";
 
@@ -10,12 +10,11 @@ const CoinsDescription = () => {
   const { id } = useParams();
 
   const getBlogs = async () => {
-    const blo = await axios.get(" http://localhost:3004/blogs/" + id);
+    const blo = await axios.get("http://localhost:3004/blogs/" + id);
     setBlog(blo.data);
   };
 
   useEffect(() => {
-    // getBlogs();
     getBlogs();
   }, [id]);
 
@@ -25,7 +24,6 @@ const CoinsDescription = () => {
         <div className={classes.descriptionBox}>
           <div className={classes.coinsImage}>
             <img src={blog.LinkToObverseImage} alt="" />
-
             <img src={blog.LinkToReverseImage} alt="" />
           </div>
           <div className={classes.contentBox}>
@@ -35,41 +33,32 @@ const CoinsDescription = () => {
               <p>{blog.longDescription}</p>
             </div>
             <div className={classes.coinsTableRow}>
-              <div>
-                <div className={classes.border}>
-                  <p>Issuing Country</p>
-                </div>
-              <div>
+              <div className={classes.border}>
+                <p>Issuing Country</p>
                 <p>{blog.country}</p>
-              </div>            
               </div>
-              <div>
-                <div >
-                <div className={classes.border}>
-                 <p>Composition</p>
-
-                </div>
-             
+              <div className={classes.border}>
+                <p>Composition</p>
                 <p>{blog.Composition}</p>
               </div>
-              <div>
+              <div className={classes.border}>
                 <p>Quality</p>
                 <p>{blog.quality}</p>
               </div>
-              <div>
+              <div className={classes.border}>
                 <p>Denomination</p>
-                <p>{blog.quality}</p>
+                <p>{blog.denomination}</p>{" "}
+                {/* Ассумпция, что у вас есть поле denomination */}
               </div>
-              <div>
+              <div className={classes.border}>
                 <p>Year</p>
                 <p>{blog.YearOfIssue}</p>
               </div>
-              <div>
+              <div className={classes.border}>
                 <p>Weight</p>
                 <p>{blog.Weight}</p>
               </div>
-
-              <div>
+              <div className={classes.border}>
                 <p>Price</p>
                 <p>{blog.price}</p>
               </div>
