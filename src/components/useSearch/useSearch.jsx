@@ -1,5 +1,4 @@
-// useSearch.js
-
+import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -26,11 +25,7 @@ const useSearch = () => {
       setFilteredData(categories);
     }
   }, [searchValue, categories]);
-
-  return {
-    categories,
-    searchValue,
-    setSearchValue,
-    filteredData,
-  };
+  return <>categories, searchValue, setSearchValue, filteredData,</>;
 };
+
+export default useSearch;
