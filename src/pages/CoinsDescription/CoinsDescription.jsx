@@ -24,12 +24,9 @@ const CoinsDescription = () => {
       <div className={classes.container}>
         <div className={classes.descriptionBox}>
           <div className={classes.coinsImage}>
-            <div>
-              <img src={blog.LinkToObverseImage} alt="" />
-            </div>
-            <div>
-              <img src={blog.LinkToReverseImage} alt="" />
-            </div>
+            <img src={blog.LinkToObverseImage} alt="" />
+
+            <img src={blog.LinkToReverseImage} alt="" />
           </div>
           <div className={classes.contentBox}>
             <div>
@@ -39,11 +36,20 @@ const CoinsDescription = () => {
             </div>
             <div className={classes.coinsTableRow}>
               <div>
-                <p>Issuing Country</p>
+                <div className={classes.border}>
+                  <p>Issuing Country</p>
+                </div>
+              <div>
                 <p>{blog.country}</p>
+              </div>            
               </div>
               <div>
-                <p>Composition</p>
+                <div >
+                <div className={classes.border}>
+                 <p>Composition</p>
+
+                </div>
+             
                 <p>{blog.Composition}</p>
               </div>
               <div>

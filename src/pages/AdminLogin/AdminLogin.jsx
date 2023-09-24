@@ -53,9 +53,11 @@ const AdminLogin = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className={classes.submit} onClick={() => handleSubmit()}>
-              Sign in{" "}
-            </button>
+            <div className={classes.submitBox}>
+              <button className={classes.submit} onClick={() => handleSubmit()}>
+                Sign in{" "}
+              </button>
+            </div>
           </form>
         </div>
       </div>

@@ -9,6 +9,8 @@ import { useNavigate, useParams } from "react-router-dom";
 const AdminPanel = () => {
   const [blogs, setBlogs] = useState([]);
   const [filterId, setFilterId] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState("");
 
@@ -92,7 +94,15 @@ const AdminPanel = () => {
   const handleEdit = (id) => {
     navigate(`/adminPanel2/${id}`);
   };
-
+  const handleFilter = async () => {
+    const results = blogs.filter(
+      (blog) => blog.topicName.toLowerCase() == searchTerm.toLowerCase()
+    );
+    setBlogs(results);
+  };
+  function handleChange(e) {
+    setSearchTerm(e.target.value);
+  }
   return (
     <>
       <div className={classes.container}>
@@ -131,7 +141,7 @@ const AdminPanel = () => {
             </>
           ))}
         <div className={classes.add}>
-          <Link to="/adminpanel2/0">
+          <Link to="/add">
             <div className={classes.circle}>+</div>
             <span className={classes.newIcon}>Add a new icon</span>
           </Link>

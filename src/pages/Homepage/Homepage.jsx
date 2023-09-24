@@ -11,6 +11,7 @@ const Homepage = () => {
   const [blogs, setBlogs] = useState([]);
   const [isFilterVisible, setVisibilityFilter] = useState([]);
   const [searchValue, setSerachValue] = useState("");
+
   const navigate = useNavigate();
 
   const getcategories = async () => {

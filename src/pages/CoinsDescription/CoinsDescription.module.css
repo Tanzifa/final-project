@@ -1,5 +1,5 @@
 .container{
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -7,18 +7,19 @@
 
 .descriptionBox{
     display: flex;
+    gap: 20px;
   
 
 }
 
-.coinsImage div{
-   max-width: 300px;
- 
-}
 
-img{
-    width: 100%;
-    object-fit: contain;
+
+.coinsImage img{
+    display: block;
+  width: 300px;
+   height: 300px;
+  object-fit: cover;
+    
 }
 .contentBox{
     padding: 19px 43px;
@@ -28,12 +29,12 @@ img{
 
 h3{
     font-size: 28px;
-font-weight: 700;
+    font-weight: 700;
 }
 
 .coinsTableRow div{
     display: flex;
- padding-left: 6px;
+     padding-left: 6px;
 }
 
 .coinsTableRow div p{
@@ -52,4 +53,28 @@ font-weight: 700;
 .backToList a{
     font-size: 10px;
    text-decoration: underline;
+}
+
+.coinImage{
+    width: 300px;
+    height: 300px;
+}
+
+.coinsImage{
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+   
+    justify-content: center;
+}
+
+.line{
+    width: 2px;
+    height: 100%;
+  
+    background-color:black;
+}
+
+.border{
+    border-right: 1px solid black;
 }
