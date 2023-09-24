@@ -11,8 +11,6 @@ import ListOfTheCoins from "./pages/ListOfTheCoins/ListOfTheCoins";
 import { ProtectedRoute } from "./Router/ProtectedRoute";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <BrowserRouter>
@@ -37,7 +35,7 @@ function App() {
           <Route path="/adminPanel2/:id" element={<AdminPanel2 />} />
           <Route path="/listofthecoins" element={<ListOfTheCoins />} />
           <Route path="/coinsdescription/:id" element={<CoinsDescription />} />
-          <Route path="/adminpanel" element={<AdminPanel />} />
+          <Route path="/adminpanel/:id" element={<AdminPanel />} />
         </Routes>
       </BrowserRouter>
     </>

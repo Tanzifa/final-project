@@ -12,7 +12,6 @@ const ListOfTheCoins = () => {
   const getBlogs = async () => {
     const blo = await axios.get(" http://localhost:3004/blogs");
     setBlogs(blo.data);
-    console.log(blo.data);
   };
 
   useEffect(() => {
@@ -20,7 +19,6 @@ const ListOfTheCoins = () => {
   }, []);
 
   function handleClick(id) {
-    console.log("gggggg", id);
     navigate(`/coinsdescription/${id}`);
   }
 

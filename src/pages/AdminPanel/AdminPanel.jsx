@@ -3,22 +3,78 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Search from "../../components/search";
 import CoinAbout from "../../components/CoinAbout/CoinAbout";
-import AdminPanel2 from "../AdminPanel2/AdminPanel2";
 import classes from "./AdminPanel.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AdminPanel = () => {
   const [blogs, setBlogs] = useState([]);
   const [filterId, setFilterId] = useState(0);
   const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("");
+
+  const { id } = useParams();
+
+  console.log("==============", JSON.parse(id));
+
+  // const searchBy = (arr = [], searchKeys = [], value = '') => {
+  //   return arr.filter(item =>
+  //     searchKeys.length ? searchKeys.some(key =>
+  //       (item[key] || "").toLowerCase().includes(value.toLowerCase())
+  //     ) : true
+  //   );
+  // };
 
   const getBlogs = async () => {
     const blo = await axios.get(
       `http://localhost:3004/blogs?${filterId ? "topicId=" + filterId : ""}`
     );
-    setBlogs(blo.data);
-    console.log(blo.data);
+    console.log(typeof id);
+    if (isNumeric(id)) {
+      console.log("ife girdik");
+      const filteredBlogs = blo.data.filter((item) => item.topicId == id);
+      setBlogs(filteredBlogs);
+    } else {
+      console.log("ELSEYE KECDIK");
+
+      let filterData = JSON.parse(id);
+      console.log("AdminPanel search value", filterData.searchValue);
+      const filteredBlogsCommon = blo.data.filter((item) => {
+        const searchValueFilter =
+          !filterData.searchValue ||
+          item.topicName
+            .toLowerCase()
+            .includes(filterData.searchValue.toLowerCase());
+        const minPricePass =
+          !filterData.minPrice || item.price >= filterData.minPrice;
+        const maxPricePass =
+          !filterData.maxPrice || item.price <= filterData.maxPrice;
+        const country =
+          !filterData.country || item.country == filterData.country;
+        const metal =
+          !filterData.metal || item.metal.includes(filterData.metal);
+        const qualityOftheCoin =
+          !filterData.qualityOftheCoin ||
+          !item.qualityOftheCoin ||
+          item.qualityOftheCoin.includes(filterData.qualityOftheCoin);
+
+        return (
+          searchValueFilter &&
+          minPricePass &&
+          maxPricePass &&
+          country &&
+          metal &&
+          qualityOftheCoin
+        );
+      });
+
+      console.log("+++++++++++++", filteredBlogsCommon);
+      setBlogs(filteredBlogsCommon);
+    }
   };
+
+  function isNumeric(str) {
+    return !isNaN(str) && !isNaN(parseFloat(str));
+  }
 
   useEffect(() => {
     getBlogs();
@@ -40,7 +96,12 @@ const AdminPanel = () => {
   return (
     <>
       <div className={classes.container}>
-        <Search title="Admin Panel" filter="Advanced filter" />
+        <Search
+          title="Admin Panel"
+          filter="Advanced filter"
+          handleSearch={(value) => setSearchValue(value)}
+        />
+
         {blogs &&
           blogs.map((blog) => (
             <>

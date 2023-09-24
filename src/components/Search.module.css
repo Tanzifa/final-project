@@ -24,4 +24,10 @@ span{
 
 .filter{
     margin-top: 0px;
+    display: flex;
+}
+.filter img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
 }

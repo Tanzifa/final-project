@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import classes from "./AdminPanel2.Module.css";
+import { useState, useEffect } from "react";
+import  "./AdminPanel2.Module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -59,16 +59,17 @@ const AdminPanel2 = () => {
     await axios.put(" http://localhost:3004/blogs/" + id, data);
     navigate("/adminpanel");
   };
+
   function cancelClick() {
     navigate(`/adminpanel`);
   }
   return (
     <>
-      <form className={classes.adminPanelForm}>
-        <div className={classes.container}>
-          <div className={classes.boxpart}>
+      <form className='adminPanelForm'>
+        <div className='container'>
+          <div className='boxpart'>
             <div>
-              <div className={classes.inputBox}>
+              <div className='inputBox'>
                 <label htmlFor="coinName">Coin name</label>
                 <br />
                 <input
@@ -76,15 +77,17 @@ const AdminPanel2 = () => {
                   name="coinName"
                   onChange={handleChange}
                   id="coinName"
-                  value={blogs.coinName}
+                  defaultValue={blogs.coinName}
+                  // value={values.coinName}
                 />
               </div>
-              <div className={classes.inputBox}>
+              <div className='inputBox'>
                 <label htmlFor="faceValue">Face Value</label>
                 <br />
                 <input
                   onChange={handleChange}
-                  value={blogs.faceValue}
+                  // value={values.faceValue}
+                  defaultValue={blogs.faceValue}
                   type="text"
                   name="faceValue"
                   id="faceValue"
@@ -92,46 +95,49 @@ const AdminPanel2 = () => {
               </div>
             </div>
 
-            <div className={classes.inputBox}>
+            <div className='inputBox'>
               <label htmlFor="shortDescription">Short description</label>
               <br />
               <textarea
                 onChange={handleChange}
                 name="shortDescription"
+                defaultValue={blogs.shortDescription}
                 id=""
-                value={blogs.shortDescription}
+                // value={values.shortDescription}
               ></textarea>
             </div>
 
             <div>
-              <div className={classes.inputBox}>
+              <div className='inputBox'>
                 <label htmlFor="obverseImage">Link to obverse image</label>
                 <br />
                 <input
                   type="text"
                   onChange={handleChange}
                   name="obverseImage"
+                  defaultValue={blogs.obverseImage}
                   id="obverseImage"
-                  value={blogs.LinkToObverseImage}
+                  // value={values.LinkToObverseImage}
                 />
               </div>
-              <div className={classes.inputBox}>
+              <div className='inputBox'>
                 <label htmlFor="reverseImage">Link to obverse image</label>
                 <br />
                 <input
                   type="text"
                   name="reverseImage"
                   id="reverseImage"
+                  defaultValue={blogs.reverseImage}
                   onChange={handleChange}
-                  value={blogs.LinkToReverseImage}
+                  // value={values.LinkToReverseImage}
                 />
               </div>
             </div>
           </div>
 
-          <div className={classes.boxpart}>
+          <div className='boxpart'>
             <div>
-              <div className={classes.inputBox}>
+              <div className='inputBox'>
                 <label htmlFor="YearOfIssue">Year of issue</label>
                 <br />
                 <input
@@ -139,10 +145,11 @@ const AdminPanel2 = () => {
                   name="YearOfIssue"
                   id="YearOfIssue"
                   onChange={handleChange}
-                  value={blogs.YearOfIssue}
+                  defaultValue={blogs.YearOfIssue}
+                  // value={values.YearOfIssue}
                 />
               </div>
-              <div className={classes.inputBox}>
+              <div className='inputBox'>
                 <label htmlFor="price">Price</label>
                 <br />
                 <input
@@ -150,48 +157,53 @@ const AdminPanel2 = () => {
                   name="price"
                   id="price"
                   onChange={handleChange}
-                  value={blogs.price}
+                  defaultValue={blogs.price}
+                  value={values.price}
                 />
               </div>
             </div>
-            <div className={classes.inputBox}>
+            <div className='inputBox'>
               <label htmlFor="longDescription">Long description</label>
               <br />
               <textarea
                 name="longDescription"
                 id=""
                 onChange={handleChange}
-                value={blogs.longDescription}
+                defaultValue={blogs.longDescription}
+
+                // value={values.longDescription}
               ></textarea>
             </div>
           </div>
-          <div className={classes.boxpart}>
-            <div className={classes.inputBox}>
+          <div className='boxpart'>
+            <div className='inputBox'>
               <label htmlFor="country">Country</label>
               <br />
               <input
                 type="text"
                 name="country"
                 id="country"
-                value={blogs.country}
+                defaultValue={blogs.country}
+                // value={values.country}
                 onChange={handleChange}
               />
             </div>
 
-            <div className={classes.inputBox}>
+            <div className='inputBox'>
               <label htmlFor="qualityOftheCoin">Quality of the coin</label>
               <br />
               <input
                 type="text"
                 name="qualityOftheCoin"
                 id="qualityOftheCoin"
+                defaultValue={blogs.country}
                 onChange={handleChange}
-                value={blogs.qualityOftheCoin}
+                value={values.qualityOftheCoin}
               />
             </div>
           </div>
-          <div className={classes.boxpart}>
-            <div className={classes.inputBox}>
+          <div className='boxpart'>
+            <div className='inputBox'>
               <label htmlFor="metal">Metal</label>
               <br />
               <input
@@ -199,26 +211,28 @@ const AdminPanel2 = () => {
                 name="metal"
                 id="metal"
                 onChange={handleChange}
-                value={blogs.metal}
+                defaultValue={blogs.country}
+                value={values.metal}
               />
             </div>
-            <div className={classes.inputBox}>
+            <div className='inputBox'>
               <label htmlFor="weight">Weight</label>
               <br />
               <input
                 type="text"
                 name="weight"
                 id="weight"
+                defaultValue={blogs.weight}
                 onChange={handleChange}
-                value={blogs.Weight}
+                value={values.Weight}
               />
             </div>
 
-            <button onClick={() => handleSubmit()} className={classes.save}>
+            <button onClick={() => handleSubmit()} className='save'>
               Save
             </button>
             <button
-              className={classes.cancel}
+              className='cancel'
               onClick={() => {
                 cancelClick();
               }}
