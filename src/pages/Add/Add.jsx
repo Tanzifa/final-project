@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import classes from "./Add.module.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Add = () => {
   const [blogs, setBlogs] = useState();
@@ -19,6 +20,9 @@ const Add = () => {
     qualityOftheCoin: "",
     Weight: "",
   });
+
+  const navigate = useNavigate();
+
   const getBlogs = async () => {
     const blo = await axios.get(" http://localhost:3004/blogs/");
     setBlogs(blo.data);
@@ -34,7 +38,8 @@ const Add = () => {
       [event.target.name]: event.target.value,
     }));
   };
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     await axios.post(" http://localhost:3004/blogs/", values);
     navigate(`/adminpanel`);
   };
@@ -185,7 +190,7 @@ const Add = () => {
             <div className={classes.clickButtons}>
               <button
                 type="submit"
-                onClick={() => handleSubmit()}
+                onClick={(e) => handleSubmit(e)}
                 className={classes.save}
               >
                 Save

@@ -57,6 +57,8 @@ const Homepage = () => {
   const [obj, setObj] = useState({
     minPrice: "",
     maxPrice: "",
+    minYearOfIssue: "",
+    maxYearOfIssue: "",
   });
 
   let data =

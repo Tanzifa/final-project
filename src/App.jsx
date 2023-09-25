@@ -30,6 +30,8 @@ function App() {
           <Route path="/listofthecoins" element={<ListOfTheCoins />} />
           <Route path="/coinsdescription/:id" element={<CoinsDescription />} />
           <Route path="/adminpanel/:id" element={<AdminPanel />} />
+          <Route path="/adminpanel" element={<AdminPanel />} />
+          <Route path="/add" element={<Add />} />
         </Routes>
       </BrowserRouter>
     </>

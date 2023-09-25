@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./AdminPanel2.Module.css";
+import classes from "./AdminPanel2.Module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,8 @@ const AdminPanel2 = () => {
     }));
     input.value = "";
   };
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     await axios.put(" http://localhost:3004/blogs/" + id, values);
     navigate(`/adminpanel`);
   };
@@ -51,11 +52,14 @@ const AdminPanel2 = () => {
   }
   return (
     <>
-      <form className="adminPanelForm">
-        <div className="container">
-          <div className="boxpart">
-            <div>
-              <div className="inputBox">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className={classes.adminPanelForm}
+      >
+        <div className={classes.container}>
+          <div className={classes.boxpart}>
+            <div className={classes.inputBoxes}>
+              <div className={classes.inputBox}>
                 <label htmlFor="coinName">Coin name</label>
                 <br />
                 <input
@@ -67,7 +71,7 @@ const AdminPanel2 = () => {
                   // value={values.coinName}
                 />
               </div>
-              <div className="inputBox">
+              <div className={classes.inputBox}>
                 <label htmlFor="faceValue">Face Value</label>
                 <br />
                 <input
@@ -81,7 +85,7 @@ const AdminPanel2 = () => {
               </div>
             </div>
 
-            <div className="inputBox">
+            <div className={classes.inputBox}>
               <label htmlFor="shortDescription">Short description</label>
               <br />
               <textarea
@@ -94,7 +98,7 @@ const AdminPanel2 = () => {
             </div>
 
             <div>
-              <div className="inputBox">
+              <div className={classes.inputBox}>
                 <label htmlFor="obverseImage">Link to obverse image</label>
                 <br />
                 <input
@@ -106,7 +110,7 @@ const AdminPanel2 = () => {
                   // value={values.LinkToObverseImage}
                 />
               </div>
-              <div className="inputBox">
+              <div className={classes.inputBox}>
                 <label htmlFor="reverseImage">Link to obverse image</label>
                 <br />
                 <input
@@ -121,7 +125,7 @@ const AdminPanel2 = () => {
             </div>
           </div>
 
-          <div className="boxpart">
+          <div className={classes.boxpart}>
             <div>
               <div className="inputBox">
                 <label htmlFor="YearOfIssue">Year of issue</label>
@@ -135,7 +139,7 @@ const AdminPanel2 = () => {
                   // value={values.YearOfIssue}
                 />
               </div>
-              <div className="inputBox">
+              <div className={classes.inputBox}>
                 <label htmlFor="price">Price</label>
                 <br />
                 <input
@@ -148,7 +152,7 @@ const AdminPanel2 = () => {
                 />
               </div>
             </div>
-            <div className="inputBox">
+            <div className={classes.inputBox}>
               <label htmlFor="longDescription">Long description</label>
               <br />
               <textarea
@@ -161,8 +165,8 @@ const AdminPanel2 = () => {
               ></textarea>
             </div>
           </div>
-          <div className="boxpart">
-            <div className="inputBox">
+          <div className={classes.boxpart}>
+            <div className={classes.inputBox}>
               <label htmlFor="country">Country</label>
               <br />
               <input
@@ -175,7 +179,7 @@ const AdminPanel2 = () => {
               />
             </div>
 
-            <div className="inputBox">
+            <div className={classes.inputBox}>
               <label htmlFor="qualityOftheCoin">Quality of the coin</label>
               <br />
               <input
@@ -188,8 +192,8 @@ const AdminPanel2 = () => {
               />
             </div>
           </div>
-          <div className="boxpart">
-            <div className="inputBox">
+          <div className={classes.boxpart}>
+            <div className={classes.inputBox}>
               <label htmlFor="metal">Metal</label>
               <br />
               <input
@@ -201,7 +205,7 @@ const AdminPanel2 = () => {
                 value={values.metal}
               />
             </div>
-            <div className="inputBox">
+            <div className={classes.inputBox}>
               <label htmlFor="weight">Weight</label>
               <br />
               <input
@@ -213,18 +217,17 @@ const AdminPanel2 = () => {
                 value={values.Weight}
               />
             </div>
-
-            <button onClick={() => handleSubmit()} className="save">
-              Save
-            </button>
-            <button
-              className="cancel"
-              onClick={() => {
-                cancelClick();
-              }}
-            >
-              Cancel
-            </button>
+            <div className={classes.clickButtons}>
+              <button className={classes.save}>Save</button>
+              <button
+                className={classes.cancel}
+                onClick={() => {
+                  cancelClick();
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       </form>

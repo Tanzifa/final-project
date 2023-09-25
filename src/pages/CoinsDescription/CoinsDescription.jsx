@@ -23,8 +23,12 @@ const CoinsDescription = () => {
       <div className={classes.container}>
         <div className={classes.descriptionBox}>
           <div className={classes.coinsImage}>
-            <img src={blog.LinkToObverseImage} alt="" />
-            <img src={blog.LinkToReverseImage} alt="" />
+            <div className={classes.imageBox}>
+              <img src={blog.LinkToObverseImage} alt="" />
+            </div>
+            <div className={classes.imageBox}>
+              <img src={blog.LinkToReverseImage} alt="" />
+            </div>
           </div>
           <div className={classes.contentBox}>
             <div>

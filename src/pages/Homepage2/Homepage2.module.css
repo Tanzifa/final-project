@@ -2,10 +2,42 @@
     max-width: 1300px;
     margin: 0 auto;
 }
-
+.selectBoxes{
+    display: flex;
+    gap: 30px;
+    align-items: end;
+}
 .selectBox{
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     max-width: 374px;
 }
-
+.selectBox label{
+font-size:14px;
+font-weight: 600;
+}
+.selectBox select{
+    width: 374px;
+    padding: 10px;
+}
+.priceBox{
+    margin-top: 0px;
+    display: flex;
+}
+.priceBox input{
+    width: 155px;
+    margin-left: 10px;
+}
+.priceBox label{
+    font-size: 14px;
+    font-weight: 300;
+}
+.maxPrice{
+    margin-left: 16px;
+}
+.priceHead{
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight:600 ;
+}

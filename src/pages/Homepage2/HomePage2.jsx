@@ -18,24 +18,79 @@ const HomePage2 = ({ form, setForm }) => {
     <>
       <div className={classes.container}>
         <form>
-          <div className={classes.selectBox}>
-            <label htmlFor="countryFilter">Issuing country</label>
-            <select
-              id="countryFilter"
-              onChange={(e) => setForm({ ...form, country: e.target.value })}
-            >
-              {blogs && blogs.map((blog) => <option>{blog.country}</option>)}
-            </select>
+          <div className={classes.selectBoxes}>
+            <div className={classes.selectBox}>
+              <label htmlFor="countryFilter">Issuing country</label>
+              <select
+                id="countryFilter"
+                onChange={(e) => setForm({ ...form, country: e.target.value })}
+              >
+                {blogs && blogs.map((blog) => <option>{blog.country}</option>)}
+              </select>
+            </div>
+            <div>
+              <p className={classes.priceHead}>Price</p>
+              <div className={classes.priceBox}>
+                <div>
+                  <label>from</label>
+                  <input
+                    type="number"
+                    value={form.minPrice}
+                    onChange={(e) =>
+                      setForm({ ...form, minPrice: e.target.value })
+                    }
+                  />
+                </div>
+                <div className={classes.maxPrice}>
+                  <label>to</label>
+                  <input
+                    type="number"
+                    value={form.maxPrice}
+                    onChange={(e) =>
+                      setForm({ ...form, maxPrice: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className={classes.selectBox}>
-            <label htmlFor="metalFilter">Metal</label>
-            <select
-              id="metalFilter"
-              onChange={(e) => setForm({ ...form, metal: e.target.value })}
-            >
-              {blogs && blogs.map((blog) => <option>{blog.metal}</option>)}
-            </select>
+          <div className={classes.selectBoxes}>
+            <div className={classes.selectBox}>
+              <label htmlFor="metalFilter">Metal</label>
+              <select
+                id="metalFilter"
+                onChange={(e) => setForm({ ...form, metal: e.target.value })}
+              >
+                {blogs && blogs.map((blog) => <option>{blog.metal}</option>)}
+              </select>
+            </div>
+            <div>
+              <p className={classes.priceHead}>Year of issue</p>
+              <div className={classes.priceBox}>
+                <div>
+                  <label>from</label>
+                  <input
+                    type="number"
+                    value={form.minYearOfIssue}
+                    onChange={(e) =>
+                      setForm({ ...form, minYearOfIssue: e.target.value })
+                    }
+                  />
+                </div>
+                <div className={classes.maxPrice}>
+                  <label>to</label>
+                  <input
+                    type="number"
+                    value={form.maxYearOfIssue}
+                    onChange={(e) =>
+                      setForm({ ...form, maxYearOfIssue: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className={classes.selectBox}>
             <label htmlFor="qualityCoin">Quality of the coin</label>
             <select
@@ -49,27 +104,7 @@ const HomePage2 = ({ form, setForm }) => {
             </select>
           </div>
         </form>
-        <div>
-          <div>
-            <p>Price</p>
-            <div>
-              <label>Min Price:</label>
-              <input
-                type="number"
-                value={form.minPrice}
-                onChange={(e) => setForm({ ...form, minPrice: e.target.value })}
-              />
-            </div>
-            <div>
-              <label>Max Price:</label>
-              <input
-                type="number"
-                value={form.maxPrice}
-                onChange={(e) => setForm({ ...form, maxPrice: e.target.value })}
-              />
-            </div>
-          </div>
-        </div>
+        <div></div>
       </div>
     </>
   );

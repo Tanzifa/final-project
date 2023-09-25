@@ -16,8 +16,6 @@ const AdminPanel = () => {
 
   const { id } = useParams();
 
-  console.log("==============", JSON.parse(id));
-
   // const searchBy = (arr = [], searchKeys = [], value = '') => {
   //   return arr.filter(item =>
   //     searchKeys.length ? searchKeys.some(key =>
@@ -30,8 +28,13 @@ const AdminPanel = () => {
     const blo = await axios.get(
       `http://localhost:3004/blogs?${filterId ? "topicId=" + filterId : ""}`
     );
+
     console.log(typeof id);
-    if (isNumeric(id)) {
+    console.log(!id);
+    if (!id) {
+      console.log("AdminPanel link without id");
+      setBlogs(blo.data);
+    } else if (isNumeric(id)) {
       console.log("ife girdik");
       const filteredBlogs = blo.data.filter((item) => item.topicId == id);
       setBlogs(filteredBlogs);
@@ -50,19 +53,25 @@ const AdminPanel = () => {
           !filterData.minPrice || item.price >= filterData.minPrice;
         const maxPricePass =
           !filterData.maxPrice || item.price <= filterData.maxPrice;
+        const minYearOfIssuePass =
+          !filterData.minYearOfIssue || item.price >= filterData.minYearOfIssue;
+        const maxYearOfIssuePass =
+          !filterData.maxYearOfIssue || item.price <= filterData.maxYearOfIssue;
         const country =
           !filterData.country || item.country == filterData.country;
         const metal =
           !filterData.metal || item.metal.includes(filterData.metal);
         const qualityOftheCoin =
           !filterData.qualityOftheCoin ||
-          !item.qualityOftheCoin ||
+          // !item.qualityOftheCoin ||
           item.qualityOftheCoin.includes(filterData.qualityOftheCoin);
 
         return (
           searchValueFilter &&
           minPricePass &&
           maxPricePass &&
+          minYearOfIssuePass &&
+          maxYearOfIssuePass &&
           country &&
           metal &&
           qualityOftheCoin
