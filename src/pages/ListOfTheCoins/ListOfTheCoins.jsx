@@ -7,6 +7,7 @@ import CoinAbout from "../../components/CoinAbout/CoinAbout";
 
 const ListOfTheCoins = () => {
   const [blogs, setBlogs] = useState();
+  const [searchValue, setSearchValue] = useState();
   const navigate = useNavigate();
 
   const getBlogs = async () => {
@@ -21,11 +22,30 @@ const ListOfTheCoins = () => {
   function handleClick(id) {
     navigate(`/coinsdescription/${id}`);
   }
+  const handleSearch = (value) => {
+    console.log("ZEYNEBUN VALUESI", value);
+    console.log("ZEYNEBUN VALUESI", value);
+
+    if (searchValue.toLowerCase().includes(blogs.topicName.toLowerCase())) {
+    }
+
+    navigate(`/adminpanel/${JSON.stringify(searchValue)}`);
+  };
+  const handleInputChange = (e) => {
+    setSearchValue(e.target.value);
+    console.log("Input changed:", value);
+    // тут ваш код обработки набора текста
+  };
 
   return (
     <>
       <div className={classes.container}>
-        <Search title="List of the coins" list="Homepage-List of the coins" />
+        <Search
+          title="List of the coins"
+          list="Homepage-List of the coins"
+          handleSearch={handleSearch}
+          handleInputChange={handleInputChange}
+        />
         <div className={classes.coinBox}>
           {blogs &&
             blogs.map((blog) => (
