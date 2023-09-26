@@ -10,7 +10,7 @@ const CoinAbout = ({
   handleClick,
 }) => (
   <div className={classes.coinAbout} onClick={handleClick}>
-    <div key={key}>
+    <div key={key} className={classes.imgBox}>
       <img src={LinkToObverseImage} />
     </div>
 

@@ -8,7 +8,7 @@
 
 
 textarea{
-  width: 374px;
+   width: 374px;
     height: 130px;
     resize: none;
 }
@@ -43,7 +43,8 @@ textarea{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-      
+      gap: 20px;
+    margin-bottom: 8px;
 
 }
 

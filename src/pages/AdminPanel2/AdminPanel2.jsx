@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import classes from "./AdminPanel2.Module.css";
 import { useParams } from "react-router-dom";
+import Title from "../../components/Title/Title";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -52,11 +53,12 @@ const AdminPanel2 = () => {
   }
   return (
     <>
-      <form
-        onSubmit={(e) => handleSubmit(e)}
-        className={classes.adminPanelForm}
-      >
-        <div className={classes.container}>
+      <div className={classes.container}>
+        <Title title="Admin Panel" />
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className={classes.adminPanelForm}
+        >
           <div className={classes.boxpart}>
             <div className={classes.inputBoxes}>
               <div className={classes.inputBox}>
@@ -97,7 +99,7 @@ const AdminPanel2 = () => {
               ></textarea>
             </div>
 
-            <div>
+            <div className={classes.inputBoxes}>
               <div className={classes.inputBox}>
                 <label htmlFor="obverseImage">Link to obverse image</label>
                 <br />
@@ -126,7 +128,7 @@ const AdminPanel2 = () => {
           </div>
 
           <div className={classes.boxpart}>
-            <div>
+            <div className={classes.inputBoxes}>
               <div className="inputBox">
                 <label htmlFor="YearOfIssue">Year of issue</label>
                 <br />
@@ -229,8 +231,8 @@ const AdminPanel2 = () => {
               </button>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 };

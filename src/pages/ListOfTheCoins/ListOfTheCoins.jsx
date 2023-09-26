@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Search from "../../components/search";
+import Search from "../../components/Search";
 import classes from "./ListOfTheCoins.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CoinAbout from "../../components/CoinAbout/CoinAbout";
 
 const ListOfTheCoins = () => {
-  const [blogs, setBlogs] = useState();
-  const [searchValue, setSearchValue] = useState();
+  const [blogs, setBlogs] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
   const navigate = useNavigate();
 
   const getBlogs = async () => {
-    const blo = await axios.get(" http://localhost:3004/blogs");
+    const blo = await axios.get("http://localhost:3004/blogs");
     setBlogs(blo.data);
+    setFilteredBlogs(blo.data); // Başlangıçta tüm blogları göster
   };
 
   useEffect(() => {
@@ -22,20 +24,17 @@ const ListOfTheCoins = () => {
   function handleClick(id) {
     navigate(`/coinsdescription/${id}`);
   }
-  const handleSearch = (value) => {
-    console.log("ZEYNEBUN VALUESI", value);
-    console.log("ZEYNEBUN VALUESI", value);
 
-    if (searchValue.toLowerCase().includes(blogs.topicName.toLowerCase())) {
-    }
+  function handleInputChange(event) {
+    setSearchValue(event.target.value);
+  }
 
-    navigate(`/adminpanel/${JSON.stringify(searchValue)}`);
-  };
-  const handleInputChange = (e) => {
-    setSearchValue(e.target.value);
-    console.log("Input changed:", value);
-    // тут ваш код обработки набора текста
-  };
+  function handleSearch() {
+    const result = blogs.filter((blog) =>
+      blog.topicName.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredBlogs(result);
+  }
 
   return (
     <>
@@ -43,20 +42,19 @@ const ListOfTheCoins = () => {
         <Search
           title="List of the coins"
           list="Homepage-List of the coins"
-          handleSearch={handleSearch}
           handleInputChange={handleInputChange}
+          handleSearch={handleSearch}
         />
         <div className={classes.coinBox}>
-          {blogs &&
-            blogs.map((blog) => (
-              <CoinAbout
-                handleClick={() => handleClick(blog.id)}
-                key={blog.id}
-                LinkToObverseImage={blog.LinkToObverseImage}
-                shortDescription={blog.shortDescription}
-                topicName={blog.topicName}
-              />
-            ))}
+          {filteredBlogs.map((blog) => (
+            <CoinAbout
+              handleClick={() => handleClick(blog.id)}
+              key={blog.id}
+              LinkToObverseImage={blog.LinkToObverseImage}
+              shortDescription={blog.shortDescription}
+              topicName={blog.topicName}
+            />
+          ))}
         </div>
       </div>
     </>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import Title from "../../components/Title/Title";
 import { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import classes from "./AdminLogin.module.css";
@@ -32,7 +33,7 @@ const AdminLogin = () => {
   return (
     <>
       <div className={classes.container}>
-        <h3 className={classes.adminHeader}>Admin Panel</h3>
+        <Title title="Admin Panel" />
         <div className={classes.formbox}>
           <form>
             <div>

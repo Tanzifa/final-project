@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Search from "../../components/search";
+import Search from "../../components/Search";
 import CoinAbout from "../../components/CoinAbout/CoinAbout";
 import classes from "./AdminPanel.module.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -112,10 +112,25 @@ const AdminPanel = () => {
   function handleChange(e) {
     setSearchTerm(e.target.value);
   }
+  function handleInputChange(event) {
+    setSearchValue(event.target.value);
+  }
+
+  function handleSearch() {
+    const result = blogs.filter((blog) =>
+      blog.topicName.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setBlogs(result);
+  }
+
   return (
     <>
       <div className={classes.container}>
-        <Search title="Admin Panel" filter="Advanced filter" />
+        <Search
+          title="Admin Panel"
+          handleInputChange={handleInputChange}
+          handleSearch={handleSearch}
+        />
         {blogs &&
           blogs.map((blog) => (
             <>

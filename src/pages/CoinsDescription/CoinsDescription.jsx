@@ -37,32 +37,32 @@ const CoinsDescription = () => {
               <p>{blog.longDescription}</p>
             </div>
             <div className={classes.coinsTableRow}>
-              <div className={classes.border}>
+              <div className={classes.rowBox}>
                 <p>Issuing Country</p>
                 <p>{blog.country}</p>
               </div>
-              <div className={classes.border}>
+              <div className={classes.rows}>
                 <p>Composition</p>
                 <p>{blog.Composition}</p>
               </div>
-              <div className={classes.border}>
+              <div className={classes.rowBox}>
                 <p>Quality</p>
                 <p>{blog.quality}</p>
               </div>
-              <div className={classes.border}>
+              <div className={classes.rows}>
                 <p>Denomination</p>
-                <p>{blog.denomination}</p>{" "}
-                {/* Ассумпция, что у вас есть поле denomination */}
+                <p>{blog.denomination}</p>
               </div>
-              <div className={classes.border}>
+              <div className={classes.rowBox}>
                 <p>Year</p>
                 <p>{blog.YearOfIssue}</p>
               </div>
-              <div className={classes.border}>
+
+              <div className={classes.rows}>
                 <p>Weight</p>
                 <p>{blog.Weight}</p>
               </div>
-              <div className={classes.border}>
+              <div className={classes.rowBox}>
                 <p>Price</p>
                 <p>{blog.price}</p>
               </div>

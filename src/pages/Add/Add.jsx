@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Title from "../../components/Title/Title";
 import classes from "./Add.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -48,8 +49,9 @@ const Add = () => {
   }
   return (
     <>
-      <form className={classes.adminPanelForm}>
-        <div className={classes.container}>
+      <div className={classes.container}>
+        <Title title="Admin Panel" />
+        <form className={classes.adminPanelForm}>
           <div className={classes.boxpart}>
             <div className={classes.inputBoxes}>
               <div className={classes.inputBox}>
@@ -205,8 +207,8 @@ const Add = () => {
               </button>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 };

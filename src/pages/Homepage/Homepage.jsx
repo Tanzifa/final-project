@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Search from "../../components/search";
+import Search from "../../components/Search";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./HomePage.module.css";
 import HomePage2 from "../Homepage2/Homepage2";
-
+import "../../App.css";
 const Homepage = () => {
   const [categories, setcategories] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -83,8 +83,8 @@ const Homepage = () => {
                 onClick={() => handleBlogClick(topic.id, topic.category)}
               >
                 <div className={classes.coinsBox}>{topic.topic}</div>
-                <Link to="">Show all</Link>
-                <div className={classes.coinImageBox}>
+                <Link to="">Show all &#10095;</Link>
+                <div className={classes.coinImage}>
                   <img src={topic.image} alt="title coins image" />
                 </div>
               </div>

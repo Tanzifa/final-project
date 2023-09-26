@@ -24,7 +24,7 @@ const Search = ({
         <br />
         <input
           onChange={(e) => {
-            if (handleInputChange) handleInputChange(e.target.value);
+            if (handleInputChange) handleInputChange(e);
             setInputValue(e.target.value);
           }}
           value={inputValue}

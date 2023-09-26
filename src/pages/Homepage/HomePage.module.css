@@ -24,14 +24,16 @@
 .coinsBoxes{
    margin-top: 50px;
    display: flex;
-   justify-content: space-between;
+  gap:200px;
 }
 
-.coinImageBox{
-  width: 150px;
+.coinImage{
+   width: 214px;
+   height: 214px;
+  
 }
-img{
- width: 214px;
+.coinImage img{
+  width: 100%;
    object-fit: cover;
 }
 
@@ -40,4 +42,9 @@ a{display: block;
    font-size: 14px;
    margin-top: 20px;
    text-decoration:none;
+}
+.bigSmybol{
+   margin-left: 0px;
+  font-size: 14px; 
+  color: black;
 }
