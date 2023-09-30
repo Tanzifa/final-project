@@ -4,21 +4,23 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./HomePage.module.css";
 import HomePage2 from "../Homepage2/Homepage2";
-import "../../App.css";
+import "../../Fonts.css";
+
 const Homepage = () => {
   const [categories, setcategories] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [blogs, setBlogs] = useState([]);
-  const [isFilterVisible, setVisibilityFilter] = useState([]);
+  const [isFilterVisible, setVisibilityFilter] = useState(true);
   const [searchValue, setSerachValue] = useState("");
 
   const navigate = useNavigate();
 
+  //kategoriyalari oxuyur
   const getcategories = async () => {
     const top = await axios.get("http://localhost:3004/categories");
     setcategories(top.data);
   };
-
+  //bloglari oxuyur
   const getBlogs = async () => {
     const blo = await axios.get(" http://localhost:3004/blogs");
     setBlogs(blo.data);
@@ -29,14 +31,12 @@ const Homepage = () => {
     getcategories();
     getBlogs();
   }, []);
-
+  //kateqoriyanin ustune basanda admin panelde hemin kategoriyadaki coinleri gosterir
   const handleBlogClick = (topicId) => {
     navigate(`/adminpanel/${topicId}`);
   };
-  function handleClick() {
-    navigate("/homepage2");
-  }
 
+  //search onclick olunanda axtarisda verdiyimiz kriteriyalara uygun melumatlar8i admin panelde gosterir
   const handleSearch = (value) => {
     console.log("ZEYNEBUN VALUESI", value);
     console.log("ZEYNEBUN VALUESI", value);
@@ -47,11 +47,6 @@ const Homepage = () => {
       searchValue: value,
     };
     navigate(`/adminpanel/${JSON.stringify(newObj)}`);
-  };
-
-  const handleInputChange = (value) => {
-    console.log("Input changed:", value);
-    // тут ваш код обработки набора текста
   };
 
   const [obj, setObj] = useState({
@@ -67,12 +62,13 @@ const Homepage = () => {
   return (
     <div className={classes.container}>
       <Search
-        handleSearch={handleSearch} // вызывается при клике на кнопку поиска
-        handleInputChange={handleInputChange} // вызывается во время набора
-        isFilterVisible={isFilterVisible}
+        handleSearch={handleSearch}
+        // handleInputChange={handleInputChange}
         title="HomePage"
+        isFilterVisible={isFilterVisible}
         toggleClick={() => setVisibilityFilter(!isFilterVisible)}
         filter="Advanced filter"
+        showIcon={true}
       />
       {isFilterVisible ? (
         <div className={classes.coinsBoxes}>

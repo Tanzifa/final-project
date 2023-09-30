@@ -5,7 +5,7 @@ import Search from "../../components/Search";
 import CoinAbout from "../../components/CoinAbout/CoinAbout";
 import classes from "./AdminPanel.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-
+import "../../Fonts.css";
 const AdminPanel = () => {
   const [blogs, setBlogs] = useState([]);
   const [filterId, setFilterId] = useState(0);
@@ -15,14 +15,6 @@ const AdminPanel = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const { id } = useParams();
-
-  // const searchBy = (arr = [], searchKeys = [], value = '') => {
-  //   return arr.filter(item =>
-  //     searchKeys.length ? searchKeys.some(key =>
-  //       (item[key] || "").toLowerCase().includes(value.toLowerCase())
-  //     ) : true
-  //   );
-  // };
 
   const getBlogs = async () => {
     const blo = await axios.get(
@@ -103,15 +95,7 @@ const AdminPanel = () => {
   const handleEdit = (id) => {
     navigate(`/adminPanel2/${id}`);
   };
-  const handleFilter = async () => {
-    const results = blogs.filter(
-      (blog) => blog.topicName.toLowerCase() == searchTerm.toLowerCase()
-    );
-    setBlogs(results);
-  };
-  function handleChange(e) {
-    setSearchTerm(e.target.value);
-  }
+
   function handleInputChange(event) {
     setSearchValue(event.target.value);
   }
@@ -130,6 +114,7 @@ const AdminPanel = () => {
           title="Admin Panel"
           handleInputChange={handleInputChange}
           handleSearch={handleSearch}
+          showIcon={false}
         />
         {blogs &&
           blogs.map((blog) => (

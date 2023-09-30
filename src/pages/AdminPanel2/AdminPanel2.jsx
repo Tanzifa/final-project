@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Title from "../../components/Title/Title";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import "../../Fonts.css";
 const AdminPanel2 = () => {
   const navigate = useNavigate();
 
@@ -62,15 +62,15 @@ const AdminPanel2 = () => {
           <div className={classes.boxpart}>
             <div className={classes.inputBoxes}>
               <div className={classes.inputBox}>
-                <label htmlFor="coinName">Coin name</label>
+                <label htmlFor="topicName">Coin name</label>
                 <br />
                 <input
                   type="text"
                   name="topicName"
                   onChange={handleChange}
-                  id="coinName"
-                  defaultValue={blogs.coinName}
-                  // value={values.coinName}
+                  id="topicName"
+                  // defaultValue={blogs.topicName}
+                  value={values.coinName}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -78,8 +78,8 @@ const AdminPanel2 = () => {
                 <br />
                 <input
                   onChange={handleChange}
-                  // value={values.faceValue}
-                  defaultValue={blogs.faceValue}
+                  value={values.faceValue}
+                  // defaultValue={blogs.faceValue}
                   type="text"
                   name="faceValue"
                   id="faceValue"
@@ -93,9 +93,9 @@ const AdminPanel2 = () => {
               <textarea
                 onChange={handleChange}
                 name="shortDescription"
-                defaultValue={blogs.shortDescription}
-                id=""
-                // value={values.shortDescription}
+                // defaultValue={blogs.shortDescription}
+                id="shortDescription"
+                value={values.shortDescription}
               ></textarea>
             </div>
 
@@ -107,9 +107,9 @@ const AdminPanel2 = () => {
                   type="text"
                   onChange={handleChange}
                   name="obverseImage"
-                  defaultValue={blogs.obverseImage}
+                  // defaultValue={blogs.obverseImage}
                   id="obverseImage"
-                  // value={values.LinkToObverseImage}
+                  value={values.LinkToObverseImage}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -119,9 +119,9 @@ const AdminPanel2 = () => {
                   type="text"
                   name="reverseImage"
                   id="reverseImage"
-                  defaultValue={blogs.reverseImage}
+                  // defaultValue={blogs.reverseImage}
                   onChange={handleChange}
-                  // value={values.LinkToReverseImage}
+                  value={values.LinkToReverseImage}
                 />
               </div>
             </div>
@@ -137,8 +137,8 @@ const AdminPanel2 = () => {
                   name="YearOfIssue"
                   id="YearOfIssue"
                   onChange={handleChange}
-                  defaultValue={blogs.YearOfIssue}
-                  // value={values.YearOfIssue}
+                  // defaultValue={blogs.YearOfIssue}
+                  value={values.YearOfIssue}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -161,9 +161,9 @@ const AdminPanel2 = () => {
                 name="longDescription"
                 id=""
                 onChange={handleChange}
-                defaultValue={blogs.longDescription}
+                // defaultValue={blogs.longDescription}
 
-                // value={values.longDescription}
+                value={values.longDescription}
               ></textarea>
             </div>
           </div>
@@ -175,8 +175,8 @@ const AdminPanel2 = () => {
                 type="text"
                 name="country"
                 id="country"
-                defaultValue={blogs.country}
-                // value={values.country}
+                // defaultValue={blogs.country}
+                value={values.country}
                 onChange={handleChange}
               />
             </div>

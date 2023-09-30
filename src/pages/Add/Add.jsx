@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Title from "../../components/Title/Title";
 import classes from "./Add.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import "../../Fonts.css";
 const Add = () => {
   const [blogs, setBlogs] = useState();
   const [values, setValues] = useState({

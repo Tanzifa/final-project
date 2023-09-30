@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "../components/Search.module.css";
-import ArrowDown from "../assets/images/arrowDown.png";
-import ArrowUp from "../assets/images/arrowUp.png";
+import ArrowDown from "../assets/images/downArrow.png";
+import ArrowUp from "../assets/images/up-arrow-5.png";
 
 const Search = ({
   title,
@@ -11,16 +11,18 @@ const Search = ({
   isFilterVisible,
   handleInputChange,
   handleSearch,
+  showIcon = true,
 }) => {
-  // Локальное состояние для хранения значения поля ввода
   const [inputValue, setInputValue] = React.useState("");
-
+  //......Axtaris komponenti
   return (
     <>
       <h2>{title}</h2>
       <span>{list}</span>
-      <div>
-        <label htmlFor="field">Input field</label>
+      <div className={classes.inputField}>
+        <label className={classes.field} htmlFor="field">
+          Input field
+        </label>
         <br />
         <input
           onChange={(e) => {
@@ -41,7 +43,9 @@ const Search = ({
         </button>
         <div className={classes.filter} onClick={toggleClick}>
           {filter}
-          <img src={isFilterVisible ? ArrowDown : ArrowUp} alt="arrow" />
+          {showIcon && (
+            <img src={isFilterVisible ? ArrowDown : ArrowUp} alt="arrow" />
+          )}
         </div>
       </div>
     </>

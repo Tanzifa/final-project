@@ -4,6 +4,7 @@ import Title from "../../components/Title/Title";
 import { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import classes from "./AdminLogin.module.css";
+import "../../Fonts.css";
 const AdminLogin = () => {
   const [user, setUser] = useState();
   const [login, setLogin] = useState();

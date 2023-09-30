@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import classes from "./CoinsDescription.module.css";
 import { Link } from "react-router-dom";
-
+import "../../Fonts.css";
 const CoinsDescription = () => {
   const [blog, setBlog] = useState([]);
   const { id } = useParams();
