@@ -24,16 +24,19 @@ const AdminPanel = () => {
     console.log(typeof id);
     console.log(!id);
     if (!id) {
+      //id yoxdursa hamisini oxxuyur
       console.log("AdminPanel link without id");
       setBlogs(blo.data);
     } else if (isNumeric(id)) {
+      //id ededdirse id-ye uygun kategoriyanin coinlerini admin panelde gosterir
       console.log("ife girdik");
       const filteredBlogs = blo.data.filter((item) => item.topicId == id);
       setBlogs(filteredBlogs);
     } else {
+      //eks halda yeni homepage2-daki sorguya uygun coinleri gosterir
       console.log("ELSEYE KECDIK");
 
-      let filterData = JSON.parse(id);
+      let filterData = JSON.parse(id); //id-ini obyekte cevirir
       console.log("AdminPanel search value", filterData.searchValue);
       const filteredBlogsCommon = blo.data.filter((item) => {
         const searchValueFilter =
@@ -70,12 +73,12 @@ const AdminPanel = () => {
         );
       });
 
-      console.log("+++++++++++++", filteredBlogsCommon);
       setBlogs(filteredBlogsCommon);
     }
   };
 
   function isNumeric(str) {
+    //id-nin eded oldugunu yoxlamaq ucun funksiya
     return !isNaN(str) && !isNaN(parseFloat(str));
   }
 
@@ -84,23 +87,28 @@ const AdminPanel = () => {
   }, []);
 
   async function handleDelete(id) {
+    //id-ye uygun blogu silir
     await axios.delete("http://localhost:3004/blogs/" + id);
     getBlogs();
   }
 
   function handleClick(id) {
+    //coine-basilanda coinsdescriptiona gedir
     navigate(`/coinsdescription/${id}`);
   }
 
   const handleEdit = (id) => {
+    //edit ucun adminpanel-2ye gedir
     navigate(`/adminPanel2/${id}`);
   };
 
   function handleInputChange(event) {
+    //inputdan gelen melumatlari searchValue-ya yazir
     setSearchValue(event.target.value);
   }
 
   function handleSearch() {
+    //search inputuna yazilan melumatla coinin topicName muqayise edilir.hemin adli blog varsa onlari gosterir
     const result = blogs.filter((blog) =>
       blog.topicName.toLowerCase().includes(searchValue.toLowerCase())
     );

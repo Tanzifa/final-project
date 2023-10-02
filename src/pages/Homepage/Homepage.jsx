@@ -46,9 +46,9 @@ const Homepage = () => {
       ...obj,
       searchValue: value,
     };
-    navigate(`/adminpanel/${JSON.stringify(newObj)}`);
+    navigate(`/adminpanel/${JSON.stringify(newObj)}`); //newObj obyekti  stringe cevirir
   };
-
+// ozunde search input ve homepage2 inputlarinin valuelerini saxlayir
   const [obj, setObj] = useState({
     minPrice: "",
     maxPrice: "",

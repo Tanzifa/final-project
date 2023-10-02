@@ -12,6 +12,7 @@ const AdminPanel2 = () => {
   const [blogs, setBlogs] = useState([]);
 
   const [values, setValues] = useState({
+    //yeni melumatlarin yazilmasi ucun
     topicName: "",
     faceValue: "",
     shortDescription: "",
@@ -27,7 +28,7 @@ const AdminPanel2 = () => {
   });
 
   const getBlogs = async () => {
-    const blo = await axios.get(" http://localhost:3004/blogs/" + id);
+    const blo = await axios.get(" http://localhost:3004/blogs/" + id); //id-ye uygun blogu goturur
     setValues(blo.data);
   };
 
@@ -36,6 +37,7 @@ const AdminPanel2 = () => {
   }, [id]);
 
   const handleChange = (event) => {
+    //yeni melumatlari values obyektine yazir
     setValues((prevValues) => ({
       ...prevValues,
       [event.target.name]: event.target.value,
@@ -43,12 +45,14 @@ const AdminPanel2 = () => {
     input.value = "";
   };
   const handleSubmit = async (e) => {
+    //kohne melumatlar yenilerle evez olunur
     e.preventDefault();
     await axios.put(" http://localhost:3004/blogs/" + id, values);
-    navigate(`/adminpanel`);
+    navigate(`/adminpanel`); //admiin panele qayidir
   };
 
   function cancelClick() {
+    //cansel duymesine basilanda geri qayidir
     navigate(`/adminpanel`);
   }
   return (
@@ -70,7 +74,7 @@ const AdminPanel2 = () => {
                   onChange={handleChange}
                   id="topicName"
                   // defaultValue={blogs.topicName}
-                  value={values.coinName}
+                  value={values.topicName}
                 />
               </div>
               <div className={classes.inputBox}>
@@ -93,7 +97,6 @@ const AdminPanel2 = () => {
               <textarea
                 onChange={handleChange}
                 name="shortDescription"
-                // defaultValue={blogs.shortDescription}
                 id="shortDescription"
                 value={values.shortDescription}
               ></textarea>

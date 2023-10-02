@@ -21,6 +21,7 @@ const AdminLogin = () => {
   }, []);
 
   const handleSubmit = () => {
+    //daxil etdiyimiz loginle parola uygun user varsa hemin datani localstorage elave edir
     if (
       user.some((item) => item.login === login && item.password === password)
     ) {

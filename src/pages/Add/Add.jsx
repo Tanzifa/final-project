@@ -8,6 +8,7 @@ import "../../Fonts.css";
 const Add = () => {
   const [blogs, setBlogs] = useState();
   const [values, setValues] = useState({
+    //melumatlarin yazilmasi ucun
     topicName: "",
     faceValue: "",
     shortDescription: "",
@@ -25,6 +26,7 @@ const Add = () => {
   const navigate = useNavigate();
 
   const getBlogs = async () => {
+    //butun bloglari oxuyur
     const blo = await axios.get(" http://localhost:3004/blogs/");
     setBlogs(blo.data);
   };
@@ -35,16 +37,18 @@ const Add = () => {
 
   const handleChange = (event) => {
     setValues((prevValues) => ({
+      //inputlardan gelen melumatlari yazir
       ...prevValues,
       [event.target.name]: event.target.value,
     }));
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //hemin melumatlarin oldugu yeni blog elave edir
     await axios.post(" http://localhost:3004/blogs/", values);
     navigate(`/adminpanel`);
   };
   function cancelClick() {
+    //geri adminpanele qayidir
     navigate(`/adminpanel`);
   }
   return (

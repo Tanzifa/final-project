@@ -21,7 +21,7 @@ const ListOfTheCoins = () => {
   const getBlogs = async () => {
     const blo = await axios.get("http://localhost:3004/blogs");
     setBlogs(blo.data);
-    setFilteredBlogs(blo.data); // Başlangıçta tüm blogları göster
+    setFilteredBlogs(blo.data); // Başlangıcda butun  blogları göster
   };
 
   useEffect(() => {
@@ -29,27 +29,30 @@ const ListOfTheCoins = () => {
   }, []);
 
   function handleClick(id) {
+    //coin ustune basilanda onun coins descriptiona gedir
     navigate(`/coinsdescription/${id}`);
   }
 
   function handleInputChange(event) {
     const currentInputValue = event.target.value;
-    setSearchValue(currentInputValue);
+    setSearchValue(currentInputValue); //searc inputunda yazilani searchvalue-ye yazir
     console.log("Current input value: ", currentInputValue);
 
     let newObj = {
+      //newObj-ye obj obyekti (homepage2-den gelen melumatlar) ve searchvalue yazir
       ...obj,
       searchValue: currentInputValue,
     };
 
-    let filtredList = filterSearch(newObj);
+    let filtredList = filterSearch(newObj); //filteredlist funksiyani newobj parametrine gore isleyir.burda ona gore yazmisam ki search inputunda hher deyisikliki olanda axtaris getsin
 
-    setFilteredBlogs(filtredList);
+    setFilteredBlogs(filtredList); //gelen cvblari bura yazir
 
     setVisibilityFilter(true);
   }
 
   function handleSearch() {
+    //search duymesine basilanda funksiyanin islenmesi ucun
     let newObj = {
       ...obj,
       searchValue: searchValue,
@@ -63,7 +66,7 @@ const ListOfTheCoins = () => {
 
     setVisibilityFilter(true);
   }
-
+  // asagidaki funksiya blogun her bir elementini homepage2-den gelen her bir melumatla yoxlayir dogru olanlari qaytarir
   function filterSearch(filterData) {
     console.log("ListOfTheCoins filterSearch", filterData);
     const filteredBlogsCommon = blogs.filter((item) => {
